@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  font-size: 10px;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -16,12 +17,12 @@
   }
 }
 
+.input {
+  @apply w-full text-gray-900 p-4 rounded-lg
+}
+
 body {
+  font-size: 1.6rem;
+  height: 100vh;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
