@@ -2,28 +2,36 @@
 
 import { IPokemon } from "@/types/models/Pokemon"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { BiSolidRightArrow, BiSolidLeftArrow } from "react-icons/bi"
 
-const changeBuddy = async (pokemon: IPokemon) => {
 
-    try {
-        const res = await fetch(`http://localhost:3000/api/update-buddy`, {
-            method: 'POST',
-            body: JSON.stringify({ pokemon }),
-        });
-
-        return res.json()
-
-    } catch (error) {
-        console.log(`Error fetching buddy: ${error}`)
-    }
-}
 
 
 export function PcComponent({ pokemons }: { pokemons: Array<any> }) {
+    const router = useRouter();
 
-    console.log(pokemons[0])
+    const changeBuddy = async (pokemon: IPokemon) => {
+
+        try {
+            const res = await fetch(`http://localhost:3000/api/update-buddy`, {
+                method: 'POST',
+                body: JSON.stringify({ pokemon }),
+            });
+    
+            if(res.ok){
+                router.refresh()
+            } else {
+                console.log("Não foi atualizado")
+            }
+            return res.json()
+    
+        } catch (error) {
+            console.log(`Error fetching buddy: ${error}`)
+        }
+    }
+
     const arr = [
         [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
         [31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
@@ -53,16 +61,16 @@ export function PcComponent({ pokemons }: { pokemons: Array<any> }) {
                     <div>
                         <div className="flex items-stretch">
                             <div>
-                                <div className="capitalize">{selectedPokemon.name}</div>
+                                <div className="capitalize">Name: {selectedPokemon.is_egg ? "Egg" : selectedPokemon.name}</div>
                                 <div >
                                     {
                                         selectedPokemon &&
                                         <Image
                                             className="-scale-x-[1]"
-                                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${selectedPokemon.specie.id}.png`}
+                                            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${selectedPokemon.is_egg ? "egg" : selectedPokemon.specie.id}.png`}
                                             height={100}
                                             width={100}
-                                            alt="pokemon image"
+                                            alt={`${selectedPokemon.is_egg ? "Pokemon Egg" : selectedPokemon.specie.name} image`}
                                         />
                                     }
                                 </div>

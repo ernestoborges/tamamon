@@ -45,7 +45,6 @@ export async function GET() {
             .select("buddy")
             .populate({
                 path: "buddy",
-                // model: "Pokemon",
                 populate: {
                     path: "specie",
                     model: "Pokedex"
@@ -53,10 +52,9 @@ export async function GET() {
             })
         if (!foundBuddy) return NextResponse.json({ message: "Buddy not found" }, { status: 401 });
 
-        return NextResponse.json(foundBuddy, { status: 200 })
+        return NextResponse.json(foundBuddy.buddy, { status: 200 })
 
     } catch (error) {
-        console.log(error)
         return NextResponse.json(error, { status: 500 })
     }
 }
