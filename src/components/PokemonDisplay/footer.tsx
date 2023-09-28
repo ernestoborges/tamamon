@@ -12,14 +12,6 @@ export default function DisplayFooter({ children }: { children: React.ReactNode 
     return <>
         <div className="h-[4rem] flex justify-between items-center gap-4">
             {children}
-            <div>
-                <button
-                    onClick={handleShowDisplay}
-                    className={`transition-all duration-500 ${showDisplay ? "-rotate-90" : "rotate-90"}`}
-                >
-                    <BiSolidRightArrow />
-                </button>
-            </div>
         </div>
     </>
 }

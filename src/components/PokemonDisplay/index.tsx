@@ -2,7 +2,7 @@ import { IPokemon } from "@/types/models/Pokemon";
 import { headers } from "next/headers";
 import DisplayFooter from "./footer";
 import Image from 'next/image'
-import { PokemonSprite, EggSprite } from "./canva";
+import { PokemonSprite, EggSprite, CanvaWrapper } from "./canva";
 
 const getBuddy = async () => {
     try {
@@ -26,10 +26,7 @@ export async function PokemonDisplay() {
     return <>
 
         <div className="flex justify-center flex-col">
-            <div
-                className="w-[30rem] h-[18rem] flex bg-cover bg-bottom items-end overflow-hidden transition-all duration-500 "
-                style={{ backgroundImage: `url(${background})` }}
-            >
+            <CanvaWrapper>
                 {
                     buddy.is_egg
                         ? <EggSprite>
@@ -49,7 +46,7 @@ export async function PokemonDisplay() {
                         </PokemonSprite>
                 }
 
-            </div>
+            </CanvaWrapper>
             <DisplayFooter>
                 <div>
                     <Image className="-scale-x-[1]" src={iconUrl} width={48} height={48} alt="pokemon icon" />
