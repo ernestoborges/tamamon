@@ -1,4 +1,4 @@
-import { ProfileComponent } from "@/components/ProfileComponents";
+import { ProfileComponent } from "@/components/GameComponents/ProfileComponents";
 
 export default function MenuProfile(){
     return <>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { SignInResponse, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation"
 
 interface IForm {

@@ -7,6 +7,8 @@ import bagIcon from "../../../public/icons/bag.svg"
 import pokedexIcon from "../../../public/icons/pokedex.svg"
 import configIcon from "../../../public/icons/config.svg"
 import pokeballIcon from "../../../public/icons/pokeball.svg"
+import pcIcon from "../../../public/icons/pc.svg"
+import friendsIcon from "../../../public/icons/friends.svg"
 import { usePathname } from "next/navigation"
 
 const menuList = [
@@ -27,6 +29,14 @@ const menuList = [
         background: true,
     },
     {
+        route: "/pc",
+        alt: "Computer icon",
+        img: pcIcon,
+        width: 30,
+        height: 30,
+        background: true,
+    },
+    {
         route: "/pokemon",
         alt: "Pokeball icon",
         img: pokeballIcon,
@@ -38,6 +48,14 @@ const menuList = [
         route: "/pokedex",
         alt: "Pokedex icon",
         img: pokedexIcon,
+        width: 30,
+        height: 30,
+        background: true,
+    },
+    {
+        route: "/friends",
+        alt: "Book icon",
+        img: friendsIcon,
         width: 30,
         height: 30,
         background: true,

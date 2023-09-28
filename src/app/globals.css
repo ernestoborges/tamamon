@@ -21,6 +21,20 @@
   @apply w-full text-gray-900 p-4 rounded-lg
 }
 
+@keyframes jiggle {
+  0% {
+    transform: translateX(-50%) rotate(10deg);
+  }
+  100%{
+    transform: translateX(-50%) rotate(-10deg);
+  }
+}
+
+.pokemon-egg {
+  animation: jiggle 2s alternate infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
 body {
   font-size: 1.6rem;
   height: 100vh;

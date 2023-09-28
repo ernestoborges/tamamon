@@ -1,13 +1,14 @@
 import mongoose from 'mongoose'
 
-const pokemonSchema = new mongoose.Schema({
+const PokemonSchema = new mongoose.Schema({
 
     name: {
         type: String,
         require: true
     },
-    pokemon_id: {
-        type: Number,
+    specie: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Pokedex",
         require: true
     },
     is_shiny: {
@@ -39,7 +40,7 @@ const pokemonSchema = new mongoose.Schema({
             max: 31,
             require: true
         },
-        atq: {
+        atk: {
             type: Number,
             min: 0,
             max: 31,
@@ -51,13 +52,13 @@ const pokemonSchema = new mongoose.Schema({
             max: 31,
             require: true
         },
-        spAtq: {
+        sp_atk: {
             type: Number,
             min: 0,
             max: 31,
             require: true
         },
-        spDef: {
+        sp_def: {
             type: Number,
             min: 0,
             max: 31,
@@ -85,6 +86,6 @@ const pokemonSchema = new mongoose.Schema({
     { timestamps: true }
 )
 
-const Pokemon = mongoose.models.Pokemon || mongoose.model('Pokemon', pokemonSchema);
+const Pokemon = mongoose.models.Pokemon || mongoose.model('Pokemon', PokemonSchema);
 
 export default Pokemon;
