@@ -23,14 +23,13 @@ const getUser = async () => {
         }
     })
     if(!response) return console.log("Can not fetch user data")
-
     return response    
 }
 
 export default async function MenuProfile(){
 
     const userData: IUser = await getUser()
-    const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/${userData.buddy.is_egg ? "egg" : userData.buddy.specie.id}.png`
+    const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/${userData.buddy?.is_egg ? "egg" : userData.buddy.specie.id}.png`
 
     return <>
         <div>Perfil</div>

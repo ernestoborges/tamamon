@@ -28,7 +28,7 @@ export async function POST(req: Request) {
 
         const arr = [1, 4, 7]
         const pokemonId = arr[Math.floor(Math.random() * 3)]
-        
+
         const foundPokedex = await Pokedex.findOne({ id: pokemonId })
         if (!foundPokedex) return NextResponse.json({ message: "Internal error" }, { status: 500 })
 
@@ -60,10 +60,11 @@ export async function POST(req: Request) {
         })
 
         await newPokemon.save()
-        
+
         console.log(JSON.stringify(newPokemon))
 
         newUser.pokemons.push(newPokemon._id)
+        newUser.buddy = newPokemon._id
 
         await newUser.save()
 
