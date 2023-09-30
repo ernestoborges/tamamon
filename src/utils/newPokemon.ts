@@ -25,6 +25,7 @@ export default async function generateNewPokemon(user: IUser) {
     const newPokemon = new Pokemon({
         specie: foundPokedex._id,
         name: foundPokedex.name,
+        lv: 1,
         is_shiny: isShiny,
         is_egg: false,
         wh_scalar: {
@@ -32,6 +33,14 @@ export default async function generateNewPokemon(user: IUser) {
             weight: scalarWeight
         },
         ivs: randomIVs,
+        evs: {
+            hp: 0,
+            atk: 0,
+            def: 0,
+            sp_atk: 0,
+            sp_def: 0,
+            speed: 0,
+        },
         owner: user._id,
     })
 

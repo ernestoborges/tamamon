@@ -1,22 +1,26 @@
 export interface IPokemon extends MongoObject {
     name: string
     specie: ISpecie
+    lv: number
     is_shiny: boolean
     is_egg: boolean
     wh_scalar: {
         weight: number
         height: number
     }
-    ivs: {
-        hp: number
-        atk: number
-        def: number
-        sp_atk: number
-        sp_def: number
-        speed: number
-    }
+    ivs: IStatList
+    evs: IStatList
     owner: string
     prev_owners: string[]
+}
+
+export interface IStatList {
+    hp: number
+    atk: number
+    def: number
+    sp_atk: number
+    sp_def: number
+    speed: number
 }
 
 export interface IStat {
@@ -44,5 +48,4 @@ export interface ISpecie extends MongoObject {
     weight: number
     stats: IStat[]
     types: IType[]
-
 }   

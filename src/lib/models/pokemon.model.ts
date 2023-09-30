@@ -11,6 +11,12 @@ const PokemonSchema = new mongoose.Schema({
         ref: "Pokedex",
         require: true
     },
+    lv: {
+        type: Number,
+        require: true,
+        min: 1,
+        max: 100
+    },
     is_shiny: {
         type: Boolean,
         require: true
@@ -68,6 +74,44 @@ const PokemonSchema = new mongoose.Schema({
             type: Number,
             min: 0,
             max: 31,
+            require: true
+        },
+    },
+    evs: {
+        hp: {
+            type: Number,
+            min: 0,
+            max: 255,
+            require: true
+        },
+        atk: {
+            type: Number,
+            min: 0,
+            max: 255,
+            require: true
+        },
+        def: {
+            type: Number,
+            min: 0,
+            max: 255,
+            require: true
+        },
+        sp_atk: {
+            type: Number,
+            min: 0,
+            max: 255,
+            require: true
+        },
+        sp_def: {
+            type: Number,
+            min: 0,
+            max: 255,
+            require: true
+        },
+        speed: {
+            type: Number,
+            min: 0,
+            max: 255,
             require: true
         },
     },
