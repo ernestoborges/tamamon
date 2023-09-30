@@ -7,6 +7,26 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --type-normal: #a8a878;
+  --type-fight: #e83000;
+  --type-flying: linear-gradient(180deg, #98d8d8 50%, #a8a878 50%);
+  --type-poison: linear-gradient(180deg, #f85888 50%, #a040a0 50%);
+  --type-ground: linear-gradient(180deg, #d8e030 50%, #b8a038 50%);
+  --type-rock: #b8a038;
+  --type-bug: #d8e030;
+  --type-ghost: #a040a0;
+  --type-steel: linear-gradient(180deg, #a8a878 50%, #507888 50%);
+  --type-fire: #f08030;
+  --type-water: #6890f0;
+  --type-grass: #78c850;
+  --type-electric: #f8b010;
+  --type-psychic: #f85888;
+  --type-ice: #98d8d8;
+  --type-dragon: linear-gradient(180deg, #6890f0 50%, #e83000 50%);
+  --type-dark: #507888;
+  --type-fairy: #ec8fe6;
+  --type-default: transperent;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,9 +50,22 @@
   }
 }
 
+@keyframes wiggle {
+  0%{
+    transform: translateY(0)
+  }
+  100%{
+    transform: translateY(-0.4rem);
+  }
+}
+
 .pokemon-egg {
   animation: jiggle 2s alternate infinite ease-in-out;
   transform-origin: bottom center;
+}
+
+.selected-box {
+  animation: wiggle 0.2s alternate infinite linear;
 }
 
 body {
