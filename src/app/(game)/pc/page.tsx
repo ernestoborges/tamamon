@@ -1,4 +1,10 @@
 import { PcComponent } from "@/components/GameComponents/Pc";
+import Newpokemon from "@/components/GameComponents/Pc/newpokemon";
+import Pokedex from "@/lib/models/pokedex.model";
+import Pokemon from "@/lib/models/pokemon.model";
+import User from "@/lib/models/user.model";
+import { connectToDB } from "@/lib/mongoose";
+import { getServerSession } from "next-auth";
 import { headers } from "next/headers"
 
 const getData = async () => {
@@ -28,8 +34,10 @@ export default async function MenuPc() {
 
     const data = await getData()
     return <>
-        <div>Your PC</div>
-
+        <div className="w-[32rem] flex justify-between">
+            Your PC
+            <Newpokemon />
+        </div>
         <PcComponent pokemons={data.pokemons} />
     </>
 }
