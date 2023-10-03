@@ -53,7 +53,7 @@ const menuList = [
         background: true,
     },
     {
-        route: "/friends",
+        route: "/community",
         alt: "Book icon",
         img: friendsIcon,
         width: 30,
