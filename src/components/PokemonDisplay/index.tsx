@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import DisplayFooter from "./footer";
 import Image from 'next/image'
 import { PokemonSprite, EggSprite, CanvaWrapper } from "./canva";
+import PokemonIcon from "../PokemonIcon";
 
 const getBuddy = async () => {
     try {
@@ -48,8 +49,12 @@ export async function PokemonDisplay() {
 
             </CanvaWrapper>
             <DisplayFooter>
-                <div>
-                    <Image className="-scale-x-[1]" src={iconUrl} width={48} height={48} alt="pokemon icon" />
+                <div className="-scale-x-[1]">
+                    <PokemonIcon
+                        id={buddy.specie.id}
+                        name={buddy.specie.name}
+                        isEgg={buddy.is_egg}
+                    />
                 </div>
                 <div className="flex-1 h-full flex items-end pb-1 capitalize">
                     {buddy ? buddy.is_egg ? "Egg" : buddy.name : "Missingno"}

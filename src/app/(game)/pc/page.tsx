@@ -1,10 +1,5 @@
 import { PcComponent } from "@/components/GameComponents/Pc";
 import Newpokemon from "@/components/GameComponents/Pc/newpokemon";
-import Pokedex from "@/lib/models/pokedex.model";
-import Pokemon from "@/lib/models/pokemon.model";
-import User from "@/lib/models/user.model";
-import { connectToDB } from "@/lib/mongoose";
-import { getServerSession } from "next-auth";
 import { headers } from "next/headers"
 
 const getData = async () => {
