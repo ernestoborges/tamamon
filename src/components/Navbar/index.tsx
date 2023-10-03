@@ -88,7 +88,7 @@ export default function Navbar() {
     }
 
     return <>
-        <nav className="fixed bottom-0 left-0 w-full p-4 bg-gray-800" >
+        <nav className="w-full p-4 bg-gray-800" >
             <ul className="w-full flex justify-between items-center">
                 {
                     menuList.map((option, index) =>

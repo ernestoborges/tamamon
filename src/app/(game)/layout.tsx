@@ -21,13 +21,13 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-900`}>
+      <body className={`${inter.className} bg-gray-900 flex flex-col`}>
         <AuthProvider>
-          <Navbar />
-          <main className='flex flex-col items-center gap-4'>
+          <main className='flex flex-1 overflow-y-scroll flex-col items-center gap-4 pb-8'>
             <PokemonDisplay />
             {children}
           </main>
+          <Navbar />
         </AuthProvider>
       </body>
     </html>
