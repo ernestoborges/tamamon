@@ -1,4 +1,4 @@
-import mongoose from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 
 const UserSchema = new mongoose.Schema({
 
@@ -32,10 +32,16 @@ const UserSchema = new mongoose.Schema({
         ref: 'Pokemon',
     },
     friends: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'User',
-        }
+        new mongoose.Schema({
+            friendship: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Friendship',
+            },
+            friend: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'User',
+            }
+        }, { _id: false })
     ],
 },
     { timestamps: true }
