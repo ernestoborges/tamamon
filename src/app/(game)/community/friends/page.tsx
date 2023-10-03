@@ -3,7 +3,6 @@ import PokemonIcon from "@/components/PokemonIcon";
 import { getDaysFromDate } from "@/utils/datesCalcs";
 import { headers } from "next/headers"
 
-
 const getData = async () => {
 
     try {
@@ -24,7 +23,6 @@ const getData = async () => {
         console.log(`Error fetching pokemons: ${error}`)
     }
 }
-
 
 export default async function MenuFriendsList() {
     const data = await getData()

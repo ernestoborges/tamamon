@@ -23,8 +23,6 @@ const getData = async () => {
     }
 }
 
-
-
 export default async function MenuPc() {
 
     const data = await getData()
