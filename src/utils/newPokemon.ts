@@ -11,8 +11,9 @@ export default async function generateNewPokemon(user: IUser) {
     if (!foundPokedex) return false
 
     const isShiny = Math.floor(Math.random() * 450) + 1 === 1
-    const scalarHeight = Math.floor(Math.random() * 255) + 1
-    const scalarWeight = Math.floor(Math.random() * 255) + 1
+    // random number between 0 and 127 plus another number between 0 and 128
+    const scalarHeight = (Math.floor(Math.random() * 128)) + (Math.floor(Math.random() * 129))
+    const scalarWeight = (Math.floor(Math.random() * 128)) + (Math.floor(Math.random() * 129))
     const randomIVs = {
         hp: Math.floor(Math.random() * 32),
         atk: Math.floor(Math.random() * 32),

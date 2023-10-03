@@ -2,7 +2,7 @@
 import { IPokemon } from "@/types/models/Pokemon"
 import { useState } from "react"
 import { PokemonBox } from "./box"
-import { InfoContainer } from "./infoComponents"
+import { InfoContainer } from "./infoComponents/index"
 
 export function PcComponent({ pokemons }: { pokemons: Array<any> }) {
 
